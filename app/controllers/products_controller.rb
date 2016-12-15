@@ -6,7 +6,6 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @product = Product.new
-    flash.now.notice = "Bienvenidos"
   end
 
   # GET /products/1
@@ -25,7 +24,7 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    @product = Product.new(params[:lell])
+    @product = Product.new(name: params[:lel][:name], price: params[:lel][:price], description: params[:lel][:description])
 
     respond_to do |format|
       if @product.save
@@ -63,11 +62,24 @@ class ProductsController < ApplicationController
     end
   end
 
+  def details
+    @hola = params[:details][:categoria]
+    redirect_to products_url, notice: "Categoria #{@hola} añadida"
+  end
+
+  def say_hola
+    @hola = params[:hola][:evento]
+    redirect_to products_url, notice: "Evento #{@hola} añadido"
+  end
+  def evento
+    @hola = params[:evento][:evento]
+    redirect_to products_url, notice: "Evento chingon #{@hola} añadido"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
     end
-
 
 end

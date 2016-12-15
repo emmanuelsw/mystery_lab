@@ -33,4 +33,48 @@
 <br><br>
 <h1>New Product</h1>
 
-<%= render 'form', product: @product %>
+<%= render 'form' %>
+
+
+<hr>
+<h1>New Category</h1>
+
+<%= form_for(:details, url: { controller: "products", action: "details" }) do |f| %>
+
+  <div class="field">
+    <%= f.label :categoria %>
+    <%= f.text_field :categoria %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Guardar" %>
+  </div>
+<% end %>
+
+
+
+<hr>
+<br>
+<%= form_for :hola, :url => { :action => "say_hola" } do |f| %>
+<div class="field">
+  <%= f.label :evento %>
+  <%= f.text_field :evento %>
+</div>
+<div class="actions">
+  <%= f.submit "Guardar" %>
+</div>
+
+<% end %>
+
+<hr>
+<br>
+
+<%= form_for :evento, :url => evento_path do |f| %>
+  <div class="field">
+    <%= f.label :evento %>
+    <%= f.text_field :evento %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Guardar" %>
+  </div>
+<% end %>
