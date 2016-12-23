@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Products</h1>
+<h2>Products</h2>
 
-<table>
+<table class="table table-striped table-hover table-bordered">
   <thead>
     <tr>
       <th>Name</th>
@@ -28,53 +28,62 @@
 
 <br>
 
-<%= link_to 'New Product', new_product_path %>
+<%= link_to 'New Product', new_product_path, class:'btn btn-default' %>
 
-<br><br>
-<h1>New Product</h1>
-
-<%= render 'form' %>
-
-
-<hr>
-<h1>New Category</h1>
-
-<%= form_for(:details, url: { controller: "products", action: "details" }) do |f| %>
-
-  <div class="field">
-    <%= f.label :categoria %>
-    <%= f.text_field :categoria %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Guardar" %>
-  </div>
-<% end %>
-
-
-
-<hr>
 <br>
-<%= form_for :hola, :url => { :action => "say_hola" } do |f| %>
-<div class="field">
-  <%= f.label :evento %>
-  <%= f.text_field :evento %>
-</div>
-<div class="actions">
-  <%= f.submit "Guardar" %>
-</div>
-
-<% end %>
-
 <hr>
-<br>
 
-<%= form_for :evento, :url => evento_path do |f| %>
-  <div class="field">
-    <%= f.label :evento %>
-    <%= f.text_field :evento %>
+<div class="row">
+
+  <div class="col-lg-6">
+    <div class="well">                
+      <legend><h3>New Product</h3></legend>
+      <%= render 'form' %>
+    </div>
+    <div class="well">
+      <%= form_for :evento, :url => evento_path do |f| %>
+        <legend><h3>New Event Two</h3></legend>
+        <div class="form-group">
+          <%= f.label :evento, class: 'control-label' %>
+          <%= f.text_field :evento, class: 'form-control' %>
+        </div>
+        <div class="actions">
+          <%= f.submit "Guardar", class: 'btn btn-default' %>
+        </div>
+      <% end %>
+    </div>
+  </div>  
+
+  <div class="col-lg-6">
+    <div class="well">
+      <legend><h3>New Category</h3></legend>
+      <%= form_for(:details, url: { controller: "products", action: "details" }, html: {class:'form-horizontal'}) do |f| %>
+        <div class="form-group">
+          <%= f.label :categoria, class: 'col-lg-2 control-label' %>
+          <div class="col-lg-10">
+            <%= f.text_field :categoria, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="actions">
+          <%= f.submit "Guardar", class: 'btn btn-success' %>
+        </div>
+      <% end %>
+
+    </div>
+
+    <div class="well">
+      <%= form_for :hola, :url => { :action => "say_hola" } do |f| %>
+        <legend><h3>New Event</h3></legend>
+        <div class="form-group">
+          <%= f.label :evento, class: 'control-label' %>
+          <%= f.text_field :evento, class: 'form-control' %>
+        </div>
+        <div class="actions">
+          <%= f.submit "Guardar", class: 'btn btn-default' %>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit "Guardar" %>
-  </div>
-<% end %>
+
+</div>
+

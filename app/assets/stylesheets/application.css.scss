@@ -13,3 +13,42 @@
  *= require_tree .
  *= require_self
  */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700');
+@import "bootstrap-sprockets";
+@import "bootswatch/lumen/variables";
+@import "bootstrap";
+@import "bootswatch/lumen/bootswatch";
+
+
+@font-face {
+	font-family: 'Morris Roman Black';
+	src:font-url('MorrisRomanBlack.ttf') format('truetype');
+}
+
+body {
+  font-family: 'Roboto Slab', serif;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  color: #22313F;
+  font-weight: bold;
+}
+
+td, label, p, input, button {
+	color: #2C3E50;
+}
+
+h3, .h3 {
+  margin-top: 0px !important;
+}
+
+.navbar-nav > li > a {
+	font-weight: bold;
+	font-size: 16px !important;
+}
+
+.navbar-brand {
+	font-family: 'Morris Roman Black';
+	font-weight: bold;
+}
